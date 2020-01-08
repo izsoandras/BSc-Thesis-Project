@@ -1,0 +1,9 @@
+<launch>
+  <arg name="camera_name" default="camera"/>
+
+	<node type="serial_gateway.py" pkg="robopro" name="serial_gateway"/>
+	<node type="joy_relay_node.py" pkg="robopro" name="joy_relay"/>
+	<include file="$(find robopro)/launch/robopro_cam.launch">
+        <arg name="camera_name" value="robocam"/>
+    </include>
+</launch>

@@ -1,0 +1,14 @@
+<launch>
+
+	<group ns="robopro">
+		<include file="$(find robopro)/launch/pos_measure.launch">
+			<arg name="camera_name" value="robocam"/>
+		</include>
+	</group>
+	<group ns="orb_slam2">
+		<node name="odometry" pkg="ORB_SLAM2" type="Mono" args="$(find ORB_SLAM2)/../../../Vocabulary/ORBvoc.txt $(find ORB_SLAM2)/Raspicam.yaml">
+			<remap from="/camera/image_raw" to="/robopro/robocam/image_raw"/>
+			<remap from="/orb_slam2/orb_pose" to="/robopro/pose/orb_slam2"/>
+		</node>
+	</group>
+</launch>

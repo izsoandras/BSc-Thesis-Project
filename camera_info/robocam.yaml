@@ -1,0 +1,26 @@
+image_width: 320
+image_height: 240
+camera_name: robocam
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [ 245.17036,    0.     ,  154.4678 ,
+            0.     ,  243.63932,  118.33134,
+            0.     ,    0.     ,    1.     ]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [0.111638, -0.163491, -0.006439, -0.013364, 0.000000]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [ 1.,  0.,  0.,
+          0.,  1.,  0.,
+          0.,  0.,  1.]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [ 249.25943,    0.     ,  149.98411,    0.     ,
+            0.     ,  250.75383,  116.90006,    0.     ,
+            0.     ,    0.     ,    1.     ,    0.     ]

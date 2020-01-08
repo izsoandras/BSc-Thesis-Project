@@ -1,0 +1,18 @@
+<launch>
+
+	<group ns="robopro">
+		<include file="$(find robopro)/launch/pos_measure.launch">
+			<arg name="camera_name" value="robocam"/>
+		</include>
+	</group>
+	<group ns="viso2">
+		<remap from="/viso2/camera_info" to="/robopro/robocam/camera_info"/>
+		<node type="image_proc" pkg="image_proc" name="rectifier">
+			<remap from="/viso2/image_raw" to="/robopro/robocam/image_raw"/>
+		</node>
+		<node type="mono_odometer" pkg="viso2_ros" name="odometer">
+			<remap from="/viso2/image" to="/viso2/image_rect"/>
+			<remap from="/viso2/odometer/pose" to="/robopro/pose/viso2"/>
+		</node>
+	</group>
+</launch>
